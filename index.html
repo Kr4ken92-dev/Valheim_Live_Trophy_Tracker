@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget de Trophées</title>
+    <style>
+        /* Style pour le fond de la page */
+        body {
+            background-color: #061111; /* Couleur d'arrière-plan */
+            color: #fff; /* Couleur du texte pour le contraste */
+            font-family: Arial, sans-serif; /* Police de caractère */
+            margin: 0;
+            padding: 0;
+        }
+        /* Style pour les trophées */
+        .trophy {
+            width: 100px;
+            height: 100px;
+            opacity: 0.2; /* Initialement semi-transparent */
+            transition: opacity 0.3s ease;
+            margin: 5px;
+            display: inline-block;
+            cursor: pointer; /* Changer le curseur pour indiquer que c'est cliquable */
+        }
+        .active {
+            opacity: 1; /* Devenir opaque lorsqu'il est activé */
+        }
+        /* Conteneur pour les trophées */
+        .category-container {
+            margin: 20px 0;
+        }
+        .category-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #fff; /* Couleur du texte des en-têtes de catégories */
+        }
+
+        .category-header img {
+            width: 150px; /* Réduit la largeur des images d'en-tête à environ 50% de la taille originale */
+            height: auto; /* Conserver le ratio des images */
+        }
+
+        #trophies-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 600px; /* Ajustez selon votre disposition souhaitée */
+            margin: 0 auto;
+        }
+        /* Boutons d'activation */
+        .control-panel {
+            text-align: center;
+            margin: 20px;
+        }
+        .control-panel button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #444; /* Couleur de fond des boutons */
+            color: #fff; /* Couleur du texte des boutons */
+            border: none; /* Supprimer les bordures */
+            border-radius: 5px; /* Coins arrondis pour les boutons */
+        }
+        .control-panel button:hover {
+            background-color: #666; /* Couleur de fond des boutons au survol */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="category-container">
+        <div class="category-header">
+            <img src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Tags\meadows.png" alt="Meadows">
+        </div>
+        <div id="meadows" class="category-content">
+            <!-- Espaces pour les trophées Meadows -->
+            <img id="trophy1" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Deer_trophy.png" class="trophy" onclick="toggleTrophy('trophy1')">
+            <img id="trophy2" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Boar_trophy.png" class="trophy" onclick="toggleTrophy('trophy2')">
+            <img id="trophy3" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Neck_trophy.png" class="trophy" onclick="toggleTrophy('trophy3')">
+            <img id="trophy4" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Eikthyr_trophy.png" class="trophy" onclick="toggleTrophy('trophy4')">
+        </div>
+    </div>
+
+    <div class="category-container">
+        <div class="category-header">
+            <img src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Tags\blackforest.png" alt="blackforest">
+        </div>
+        <div id="blackforest" class="category-content">
+            <!-- Espaces pour les trophées Black Forest -->
+            <img id="trophy5" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Greydwarf_trophy.png" class="trophy" onclick="toggleTrophy('trophy5')">
+            <img id="trophy6" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Greydwarf_Brute_trophy.png" class="trophy" onclick="toggleTrophy('trophy6')">
+            <img id="trophy7" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Greydwarf_Shaman_trophy.png" class="trophy" onclick="toggleTrophy('trophy7')">
+            <img id="trophy8" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Skeleton_trophy.png" class="trophy" onclick="toggleTrophy('trophy8')">
+            <img id="trophy9" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Rancid_Remains_trophy.png" class="trophy" onclick="toggleTrophy('trophy9')">
+            <img id="trophy10" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Troll_trophy.png" class="trophy" onclick="toggleTrophy('trophy10')">
+            <img id="trophy11" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Brenna_trophy.png" class="trophy" onclick="toggleTrophy('trophy11')">
+            <img id="trophy12" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\The_Elder_trophy.png" class="trophy" onclick="toggleTrophy('trophy12')">
+        </div>
+    </div>
+
+    <div class="category-container">
+        <div class="category-header">
+            <img src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Tags\swamp.png" alt="swamp">
+        </div>
+        <div id="swamp" class="category-content">
+            <!-- Espaces pour les trophées Swamps -->
+            <img id="trophy13" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Draugr_trophy.png" class="trophy" onclick="toggleTrophy('trophy13')">
+            <img id="trophy14" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Draugr_Elite_trophy.png" class="trophy" onclick="toggleTrophy('trophy14')">
+            <img id="trophy15" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Blob_trophy.png" class="trophy" onclick="toggleTrophy('trophy15')">
+            <img id="trophy16" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Leech_trophy.png" class="trophy" onclick="toggleTrophy('trophy16')">
+            <img id="trophy17" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Abomination_trophy.png" class="trophy" onclick="toggleTrophy('trophy17')">
+            <img id="trophy18" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Wraith_trophy.png" class="trophy" onclick="toggleTrophy('trophy18')">
+            <img id="trophy19" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Surtling_trophy.png" class="trophy" onclick="toggleTrophy('trophy19')">
+            <img id="trophy20" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Bonemass_trophy.png" class="trophy" onclick="toggleTrophy('trophy20')">
+        </div>
+    </div>
+
+    <div class="category-container">
+        <div class="category-header">
+            <img src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Tags\mountain.png" alt="mountain">
+        </div>
+        <div id="mountain" class="category-content">
+            <!-- Espaces pour les trophées Mountains -->
+            <img id="trophy21" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Wolf_trophy.png" class="trophy" onclick="toggleTrophy('trophy21')">
+            <img id="trophy22" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Drake_trophy.png" class="trophy" onclick="toggleTrophy('trophy22')">
+            <img id="trophy23" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Fenring_trophy.png" class="trophy" onclick="toggleTrophy('trophy23')">
+            <img id="trophy24" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Cultist_trophy.png" class="trophy" onclick="toggleTrophy('trophy24')">
+            <img id="trophy25" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Ulv_trophy.png" class="trophy" onclick="toggleTrophy('trophy25')">
+            <img id="trophy26" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Stone_Golem_trophy.png" class="trophy" onclick="toggleTrophy('trophy26')">
+            <img id="trophy27" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Geirrhafa_trophy.png" class="trophy" onclick="toggleTrophy('trophy27')">
+            <img id="trophy28" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Moder_trophy.png" class="trophy" onclick="toggleTrophy('trophy28')">
+        </div>
+    </div>
+
+    <div class="category-container">
+        <div class="category-header">
+            <img src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Tags\plains.png" alt="plains">
+        </div>
+        <div id="plains" class="category-content">
+            <!-- Espaces pour les trophées Plains -->
+            <img id="trophy29" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Fuling_trophy.png" class="trophy" onclick="toggleTrophy('trophy29')">
+            <img id="trophy30" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Fuling_berserker_trophy.png" class="trophy" onclick="toggleTrophy('trophy30')">
+            <img id="trophy31" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Fuling_shaman_trophy.png" class="trophy" onclick="toggleTrophy('trophy31')">
+            <img id="trophy32" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Growth_trophy.png" class="trophy" onclick="toggleTrophy('trophy32')">
+            <img id="trophy33" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Lox_trophy.png" class="trophy" onclick="toggleTrophy('trophy33')">
+            <img id="trophy34" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Deathsquito_trophy.png" class="trophy" onclick="toggleTrophy('trophy34')">
+            <img id="trophy35" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Zil_trophy.png" class="trophy" onclick="toggleTrophy('trophy35')">
+            <img id="trophy36" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Thungr_trophy.png" class="trophy" onclick="toggleTrophy('trophy36')">
+            <img id="trophy37" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Yagluth_trophy.png" class="trophy" onclick="toggleTrophy('trophy37')">
+        </div>
+    </div>
+
+    <div class="category-container">
+        <div class="category-header">
+            <img src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Tags\mistlands.png" alt="mistlands">
+        </div>
+        <div id="mistlands" class="category-content">
+            <!-- Espaces pour les trophées Mistlands -->
+            <img id="trophy38" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Seeker_trophy.png" class="trophy" onclick="toggleTrophy('trophy38')">
+            <img id="trophy39" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Seeker_soldier_trophy.png" class="trophy" onclick="toggleTrophy('trophy39')">
+            <img id="trophy40" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Tick_trophy.png" class="trophy" onclick="toggleTrophy('trophy40')">
+            <img id="trophy41" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Gjall_trophy.png" class="trophy" onclick="toggleTrophy('trophy41')">
+            <img id="trophy42" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Dvergr_trophy.png" class="trophy" onclick="toggleTrophy('trophy42')">
+            <img id="trophy43" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Hare_trophy.png" class="trophy" onclick="toggleTrophy('trophy43')">
+            <img id="trophy44" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\The_Queen_trophy.png" class="trophy" onclick="toggleTrophy('trophy44')">
+        </div>
+    </div>
+
+    <div class="category-container">
+        <div class="category-header">
+            <img src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Tags\ashlands.png" alt="ashlands">
+        </div>
+        <div id="ashlands" class="category-content">
+            <!-- Espaces pour les trophées Ashlands -->
+            <img id="trophy45" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Warrior_trophy.png" class="trophy" onclick="toggleTrophy('trophy45')">
+            <img id="trophy46" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Marksman_trophy.png" class="trophy" onclick="toggleTrophy('trophy46')">
+            <img id="trophy47" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Warlock_trophy.png" class="trophy" onclick="toggleTrophy('trophy47')">
+            <img id="trophy48" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Volture_trophy.png" class="trophy" onclick="toggleTrophy('trophy48')">
+            <img id="trophy49" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Fallen_Valkyrie_trophy.png" class="trophy" onclick="toggleTrophy('trophy49')">
+            <img id="trophy50" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Asksvin_trophy.png" class="trophy" onclick="toggleTrophy('trophy50')">
+            <img id="trophy51" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Morgen_trophy.png" class="trophy" onclick="toggleTrophy('trophy51')">
+            <img id="trophy52" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Bonemaw_trophy.png" class="trophy" onclick="toggleTrophy('trophy52')">
+            <img id="trophy53" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Fader_trophy.png" class="trophy" onclick="toggleTrophy('trophy53')">
+        </div>
+    </div>
+
+    <div class="category-container">
+        <div class="category-header">
+            <img src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Tags\ocean.png" alt="ocean">
+        </div>
+        <div id="ocean" class="category-content">
+            <!-- Espaces pour les trophées Ocean -->
+            <img id="trophy54" src="C:\Users\Vince\OneDrive\Bureau\Dev\Twitch_Trophy_Widget\Trophies\Serpent_trophy.png" class="trophy" onclick="toggleTrophy('trophy54')">
+        </div>
+    </div>    
+        
+    </div>
+
+    <script>
+        function activateTrophy(trophyId) {
+            const trophyElement = document.getElementById(trophyId);
+            trophyElement.classList.add('active');
+        }
+
+        function toggleTrophy(trophyId) {
+            const trophyElement = document.getElementById(trophyId);
+            if (trophyElement.classList.contains('active')) {
+                trophyElement.classList.remove('active');
+            } else {
+                trophyElement.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
